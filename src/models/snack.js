@@ -13,11 +13,6 @@ const snackSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    snack_sales_snack: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'salesSnack',
-        required: false
-    }
 });
 
 module.exports = mongoose.model("Snack", snackSchema)

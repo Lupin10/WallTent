@@ -12,6 +12,12 @@ const salesSnackSchema = mongoose.Schema({
     date_order:{
         type: Date,
         required: true
+    },
+    //salesSnack
+    snack_sales_snack: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'salesSnack',
+        required: false
     }
 });
 

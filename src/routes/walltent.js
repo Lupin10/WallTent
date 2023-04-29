@@ -8,8 +8,8 @@ const snackSchema = require("../models/snack");
 
 //New Snack
 router.post("/snacks", (req, res) => {
-    const salesSnack = salesSnackSchema(req.body);
-    salesSnack
+    const snack = snackSchema (req.body);
+    snack
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -49,5 +49,12 @@ router.delete("/snacks/:id", (req,res) =>{
     .then((data) => res.json(data))
     .catch((error) => res.json({message: error}));
 });
-
+//New sales Snack
+router.post("/sales snacks", (req, res) => {
+    const salesSnack = salesSnackSchema (req.body);
+    salesSnack
+        .save()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
 module.exports = router;
