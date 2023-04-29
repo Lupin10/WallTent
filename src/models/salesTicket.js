@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const salesTicketSchema = mongoose.Shema({
+const salesTicketSchema = mongoose.Schema({
     ticketId:{
         type: Number,
         required: true

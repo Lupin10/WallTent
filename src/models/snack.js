@@ -14,7 +14,7 @@ const clientSchema = mongoose.Schema({
         required: true
     },
     client_student: {
-        type: moongose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Snack',
         required: true
     }
