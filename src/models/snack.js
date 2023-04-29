@@ -1,6 +1,6 @@
 const mongoose = require("mongoose"); //importando el componente mongoose
 
-const clientSchema = mongoose.Schema({
+const snackSchema = mongoose.Schema({
     name:{
         type: String,
         required: true
@@ -13,11 +13,11 @@ const clientSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    client_student: {
+    snack_sales_snack: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Snack',
-        required: true
+        ref: 'salesSnack',
+        required: false
     }
 });
 
-module.exports = mongoose.model("Client", clientSchema)
+module.exports = mongoose.model("Snack", snackSchema)

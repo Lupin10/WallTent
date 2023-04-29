@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const providerSchema = mongoose.Schema({
-    nameProvider:{
+    name_provider:{
         type: String,
         required: true
     },

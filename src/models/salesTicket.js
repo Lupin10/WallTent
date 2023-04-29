@@ -1,27 +1,14 @@
 const mongoose = require("mongoose");
 
-const salesTicketSchema = mongoose.Schema({
-    ticketId:{
-        type: Number,
-        required: true
-    },
-    clientId:{
-        type: Number,
-        required: true
-    },
+const salesTicketSchema = mongoose.Schema({    
     quantity:{
         type: Number,
         required: true
     },
-    totalValue:{
+    total_value:{
         type: Number,
         required: true
-    },
-    salesTicket:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Sales_Ticket',
-        required: true
-    }
+    },    
 });
 
-module.exports = mongoose.model("Sales_Ticket", salesTicketSchema)
+module.exports = mongoose.model("Sales Ticket", salesTicketSchema)
