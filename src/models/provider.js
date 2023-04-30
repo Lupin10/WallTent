@@ -9,11 +9,11 @@ const providerSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    provider:{
+    /*provider:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Provider',
         required: true
-    }
+    }*/
 });
 
 module.exports = mongoose.model("Provider", providerSchema)
