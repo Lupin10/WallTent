@@ -2,13 +2,24 @@ const parser = require("body-parser");
 const express = require('express');
 const app = express();
 const port = 3000;
-const wallTentRoutes = require("./routes/walltent");
+/*const wallTentRoutes = require("./routes/walltent");*/
+const clientRoutes = require("./routes/clients");
+const employeeRoutes = require("./routes/employees");
+const studentRoutes = require("./routes/students");
+const playRoutes = require("./routes/plays");
+const ticketRoutes = require("./routes/tickets");
+
 const mongoose = require("mongoose");
 require('dotenv').config();
-app.use(parser.urlencoded({ extended: false })); //permite leer los datos que vienen en la petición
-app.use(parser.json()); // transforma los datos a formato JSON
+app.use(parser.urlencoded({ extended: false }));
+app.use(parser.json()); 
 //Gestión de las rutas usando el middleware
-app.use("/api", wallTentRoutes);
+//app.use("/api", wallTentRoutes);
+app.use("/api", clientRoutes);
+app.use("/api", employeeRoutes);
+app.use("/api", studentRoutes);
+app.use("/api", playRoutes);
+app.use("/api", ticketRoutes);
 app.use(express.json());
 //Conexión a la base de datos
 mongoose

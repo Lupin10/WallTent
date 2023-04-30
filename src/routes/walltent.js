@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const router = express.Router();
 const inventorySnackSchema = require("../models/inventorySnack");
 const providerSchema = require("../models/provider");
@@ -57,4 +57,4 @@ router.post("/sales snacks", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-module.exports = router;
+module.exports = router;*/
