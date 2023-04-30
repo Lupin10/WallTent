@@ -13,12 +13,17 @@ const salesSnackSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-    //salesSnack
-    snack_sales_snack: {
+    //FK snack id
+    snack_id: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'salesSnack',
+        ref: 'snacks',
         required: false
-    }
+    }],
+    //Fk client id
+    client_id: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'clients'
+    }],
 });
 
 module.exports = mongoose.model("Sales Snack", salesSnackSchema)
