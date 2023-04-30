@@ -13,15 +13,15 @@ const employeeSchema = mongoose.Schema({
         required: true
     },
     birthday:{
-        type: Date,
+        type: String,
         required: true
     },
     admission_date:{
-        type: Date,
+        type: String,
         required: true
     },
     dismissal_date:{
-        type: Date,
+        type: String,
         required: true
     },
 });

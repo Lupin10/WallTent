@@ -13,7 +13,7 @@ const playSchema = mongoose.Schema({
         required: true
     },
     schedule:{
-        type: Date,
+        type: String,
         required: true
     },
     summary:{
