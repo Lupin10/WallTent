@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const inventorySnackSchema = mongoose.Schema({
     snack_id:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'snack',
+        ref: 'Snack',
         required: false
     }],
     quantity:{
@@ -16,4 +16,4 @@ const inventorySnackSchema = mongoose.Schema({
     }    
 });
 
-module.exports = mongoose.model("Inventory Snack", inventorySnackSchema)
+module.exports = mongoose.model("Inventory_Snack", inventorySnackSchema)

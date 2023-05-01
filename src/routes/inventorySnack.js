@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Route();
+const router = express.Router();
 const inventorySnackSchema = require("../models/inventorySnack");
 const snackSchema = require("../models/snack");
 
 //New inventory snack
-router.post("/inventorySnacks", (req,res) => {
+router.post("/inventory_Snacks", (req,res) => {
     const inventorySnack = inventorySnackSchema (req.body);
     inventorySnack
         .save()
@@ -13,14 +13,14 @@ router.post("/inventorySnacks", (req,res) => {
 });
 
 //Search inventory snack
-router.get("/inventorySnacks", (req,res) => {
+router.get("/inventory_Snacks", (req,res) => {
     inventorySnackSchema.find()
     .then((data) => res.json(data))
     .catch((error) => res.json({message: error}));
 });
 
 //Search inventory snack by id
-router.get("/inventorySnacks/:id", (req,res) => {
+router.get("/inventory_Snacks/:id", (req,res) => {
     const {id} = req.params;
     inventorySnackSchema.findById(id)
     .then((data) => res.json(data))
@@ -28,7 +28,7 @@ router.get("/inventorySnacks/:id", (req,res) => {
 });
 
 //Modify inventory snack by id
-router.put("/inventorySnacks/:id", async (req,res) => {
+router.put("/inventory_Snacks/:id", async (req,res) => {
     const {id} = req.params;
     const snack = snackSchema(req.body)
     var idSnack = null;
@@ -51,7 +51,7 @@ router.put("/inventorySnacks/:id", async (req,res) => {
 });
 
 //Delete inventory snack by id
-router.delete("/inventorySnacks/:id", (req,res) => {
+router.delete("/inventory_Snacks/:id", (req,res) => {
     const {id} = req.params;
     inventorySnackSchema.findOneAndDelete(id)
     .then((data) => res.json(data))

@@ -11,12 +11,12 @@ const salesTicketSchema = mongoose.Schema({
     },
     ticket_id:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ticket'
+        ref: 'Ticket'
     }],
     client_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'client'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Client'
     }
 });
 
-module.exports = mongoose.model("Sales Ticket", salesTicketSchema)
+module.exports = mongoose.model("Sales_Ticket", salesTicketSchema)

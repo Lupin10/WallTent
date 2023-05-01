@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Route();
+const router = express.Router();
 const snackSchema = require("../models/snack");
 
 //New Snack
 router.post("/snacks", (req, res) => {
-    const snack = snackSchema(req.body)
+    const snack = snackSchema(req.body);
     snack
         .save()
         .then((data) => res.json(data))

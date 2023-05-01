@@ -21,6 +21,6 @@ const playSchema = mongoose.Schema({
         required: true
     },
     play_ticket:[{type: mongoose.Schema.Types.ObjectId,
-    ref: 'ticket'}]
+    ref: 'Ticket'}]
 });
 module.exports = mongoose.model("Play", playSchema);

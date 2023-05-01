@@ -1,11 +1,11 @@
 const express = require("express");
-const router = express.Route();
+const router = express.Router();
 const salesSnackSchema = require("../models/salesSnack");
-const snackSchema = require("../models/snack")
+const snackSchema = require("../models/snack");
 
 //New salesSnack
-router.post("/salesSnacks", (req,res) => {
-    const salesSnack = salesSnackSchema (req.body)
+router.post("/sales_Snacks", (req,res) => {
+    const salesSnack = salesSnackSchema (req.body);
     salesSnack
         .save()
         .then((data) => res.json(data))
@@ -13,14 +13,14 @@ router.post("/salesSnacks", (req,res) => {
 });
 
 //Search salesSnack
-router.get("/salesSnacks", (req,res) => {
+router.get("/sales_Snacks", (req,res) => {
     salesSnackSchema.find()
     .then((data) => res.json(data))
     .catch((error) => res.json({message: error}))
 });
 
 //Search salesSnack by id
-router.get("/salesSnacks/:id", (req,res) => {
+router.get("/sales_Snacks/:id", (req,res) => {
     const {id} = req.params;
     salesSnackSchema.findById(id)
     .then((data) => res.json(data))
@@ -28,7 +28,7 @@ router.get("/salesSnacks/:id", (req,res) => {
 });
 
 //Modify salesSnack by id
-router.put("/salesSnacks/:id", async (req,res) => {
+router.put("/sales_Snacks/:id", async (req,res) => {
     const {id} = req.params;
     const snack = snackSchema(req.body)
     var idSnack = null;
@@ -51,7 +51,7 @@ router.put("/salesSnacks/:id", async (req,res) => {
 });
 
 //Delete salesSnack by id
-router.delete("/salesSnacks/:id", (req,res) => {
+router.delete("/sales_Snacks/:id", (req,res) => {
     const {id} = req.params;
     salesSnackSchema.findOneAndDelete(id)
     .then((data) => res.json(data))
