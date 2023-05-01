@@ -23,7 +23,7 @@ const clientSchema = mongoose.Schema({
     client_student: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref:'student', 
-        required: true 
+        required: false 
     }
 });
 module.exports = mongoose.model("Client", clientSchema);
