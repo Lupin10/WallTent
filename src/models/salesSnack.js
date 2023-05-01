@@ -16,13 +16,13 @@ const salesSnackSchema = mongoose.Schema({
     //FK snack id
     snack_id: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'snacks',
+        ref: 'snack',
         required: false
     }],
     //Fk client id
     client_id: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'clients'
+        ref: 'client'
     }],
 });
 

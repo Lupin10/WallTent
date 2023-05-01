@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Route();
 const inventorySnackSchema = require("../models/inventorySnack");
+const snackSchema = require("../models/snack");
 
 //New inventory snack
 router.post("/inventorySnacks", (req,res) => {
@@ -27,11 +28,23 @@ router.get("/inventorySnacks/:id", (req,res) => {
 });
 
 //Modify inventory snack by id
-router.get("/inventorySnacks/:id", (req,res) => {
+router.put("/inventorySnacks/:id", async (req,res) => {
     const {id} = req.params;
-    const {snack_id, quantity, name} = req.body;
+    const snack = snackSchema(req.body)
+    var idSnack = null;
+
+    const snackSearch = await snackSchema.findOne({name: req.body.name})
+    if (!snackSearch) {
+        await snack.save().then((dataSnack) => {
+            idSnack = dataSnack._id;
+        });        
+    }
+    else {
+        idSnack = snackSearch._id;
+    }
+
     inventorySnackSchema.updateOne({_id:id}, {
-        $set: {snack_id, quantity, name}
+        $addToSet: {snack_id: idSnack}
     })
     .then((data) => res.json(data))
     .catch((error) => res.json({message: error}));

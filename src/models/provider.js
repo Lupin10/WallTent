@@ -8,12 +8,7 @@ const providerSchema = mongoose.Schema({
     link:{
         type: String,
         required: true
-    },
-    /*provider:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Provider',
-        required: true
-    }*/
+    }
 });
 
 module.exports = mongoose.model("Provider", providerSchema)

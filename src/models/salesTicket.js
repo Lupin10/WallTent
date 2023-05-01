@@ -11,11 +11,11 @@ const salesTicketSchema = mongoose.Schema({
     },
     ticket_id:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'tickets'
+        ref: 'ticket'
     }],
     client_id:{
         type:mongoose.Schema.Types.ObjectId,
-        ref: 'clients'
+        ref: 'client'
     }
 });
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Route();
 const salesTicketSchema = require("../models/salesTicket");
+const ticketSchema = require("../models/ticket");
 
 //New salesTicket
 router.post("/salesTickets", (req,res) => {
@@ -27,11 +28,23 @@ router.get("/salesTickets/:id", (req,res) => {
 });
 
 //Modify salesTicket by id
-router.put("/salesTickets/:id", (req,res) => {
+router.put("/salesTickets/:id", async (req,res) => {
     const {id} = req.params;
-    const {quantity, total_value, ticket_id, client_id} = req.body;
+    const ticket = ticketSchema(req.body)
+    var idTicket = null;
+
+    const ticketSearch = await ticketSchema.findOne({title: req.body.title})
+    if (!ticketSearch) {
+        await ticket.save().then((dataTicket) => {
+            idTicket = dataTicket._id;
+        });        
+    }
+    else {
+        idTicket = ticketSearch._id;
+    }
+
     salesTicketSchema.updateOne({_id:id}, {
-        $set: {quantity, total_value, ticket_id, client_id}
+        $addToSet: {ticket_id: idTicket}
     })
     .then((data) => res.json(data))
     .catch((error) => res.json({message: error}));

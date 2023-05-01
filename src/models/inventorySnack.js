@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const inventorySnackSchema = mongoose.Schema({
-    snack_id:{
+    snack_id:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'snack',
-        required: true
-    },
+        required: false
+    }],
     quantity:{
         type: Number,
         required: true
@@ -13,12 +13,7 @@ const inventorySnackSchema = mongoose.Schema({
     name:{
         type: String,
         required: true
-    },
-    /*inventory_snack:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'InventorySnack',
-        required: false
-    }*/
+    }    
 });
 
 module.exports = mongoose.model("Inventory Snack", inventorySnackSchema)
