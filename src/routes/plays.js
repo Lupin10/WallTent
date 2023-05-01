@@ -50,7 +50,7 @@ router.put("/plays/:id") ,async(req,res) =>{
     }
     playSchema
         .updateOne({_id: id}, {
-            $pull: {plays:idTicket}
+            $pull: {playsplay_ticket:idTicket}
         })
     .then((data)=> res.json(data))
     .catch((error) => res.json({message: error}));
